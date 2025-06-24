@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perception Test Cases Visualization</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        /* Table of Contents Styles */
+        .toc-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px 0;
+            padding: 30px;
+        }
+        
+        .toc-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-title {
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #666;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-item {
+            display: block;
+            padding: 6px 8px;
+            margin: 3px 0;
+            font-size: 0.75em;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .sidebar-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-2px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px 0;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            scroll-margin-top: 100px;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .case-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+        }
+        
+        .case-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        /* Modified layout - single column */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .video-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            text-align: center;
+        }
+        
+        .svg-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Larger video */
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .svg-container {
+            margin: 15px 0;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .svg-title {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: #e9ecef;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .questions-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin-top: 20px;
+        }
+        
+        .question-item {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        
+        .option-item {
+            padding: 8px 12px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 3px solid #dee2e6;
+        }
+        
+        .correct-answer {
+            background: #d4edda !important;
+            border-left-color: #28a745 !important;
+            font-weight: bold;
+        }
+        
+        .question-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .meta-tag {
+            background: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            margin: 50px 0;
+        }
+        
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .svg-not-found {
+            color: #6c757d;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+            
+            video {
+                max-width: 100%;
+            }
+            
+            .sidebar-nav {
+                display: none;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Perception Test Cases Visualization</h1>
+        
+        <!-- Table of Contents -->
+        <div class="toc-container" id="toc-container">
+            <div class="toc-title">📋 Table of Contents - Quick Navigation</div>
+            <div class="toc-list" id="toc-list">
+                <!-- TOC items will be generated dynamically -->
+            </div>
+        </div>
+        
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav" id="sidebar-nav">
+            <div class="sidebar-title">INDEX</div>
+            <div class="sidebar-list" id="sidebar-list">
+                <!-- Sidebar items will be generated dynamically -->
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+        
+        <div class="loading" id="loading">Loading data...</div>
+        <div id="cases-container"></div>
+    </div>
+
+    <script>
+        // Configuration
+        const CASES_TO_SHOW = ['video_806', 'video_580', 'video_5', 'video_1761', 'video_1436', 'video_1361', 'video_12', 'video_1185', 'video_1182', 'video_61'];
+        
+        // Generate Table of Contents
+        function generateTOC() {
+            const tocList = document.getElementById('toc-list');
+            const tocItems = CASES_TO_SHOW.map(videoId => `
+                <a href="#${videoId}" class="toc-item">${videoId}</a>
+            `).join('');
+            tocList.innerHTML = tocItems;
+        }
+        
+        // Generate Sidebar Navigation
+        function generateSidebar() {
+            const sidebarList = document.getElementById('sidebar-list');
+            const sidebarItems = CASES_TO_SHOW.map(videoId => `
+                <a href="#${videoId}" class="sidebar-item">${videoId.replace('video_', 'V')}</a>
+            `).join('');
+            sidebarList.innerHTML = sidebarItems;
+        }
+        
+        // Back to Top functionality
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            function toggleBackToTopBtn() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }
+            
+            // Scroll to top when clicked
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Add scroll listener
+            window.addEventListener('scroll', toggleBackToTopBtn);
+        }
+        
+        // Main functionality functions
+        async function loadMCQuestions() {
+            try {
+                const response = await fetch('./mc_question_train.json');
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                return {};
+            }
+        }
+        
+        async function checkFileExists(url) {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+        
+        async function loadSVGContent(url) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    return await response.text();
+                }
+            } catch (error) {
+                console.error('Error loading SVG:', error);
+            }
+            return null;
+        }
+        
+        function createQuestionHTML(questions) {
+            if (!questions || questions.length === 0) {
+                return '<p class="error">No question data found</p>';
+            }
+            
+            return questions.map((q, index) => `
+                <div class="question-item">
+                    <div class="question-text">Q${index + 1}: ${q.question}</div>
+                    <ul class="options-list">
+                        ${q.options.map((option, i) => `
+                            <li class="option-item ${i === q.answer_id ? 'correct-answer' : ''}">
+                                ${String.fromCharCode(65 + i)}. ${option}
+                                ${i === q.answer_id ? ' ✓' : ''}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="question-meta">
+                        <span><strong>Area:</strong> ${q.area}</span>
+                        <span><strong>Reasoning:</strong> ${q.reasoning}</span>
+                        <span class="meta-tag">${q.tag ? q.tag.join(', ') : ''}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        async function createCaseHTML(videoId, questions) {
+            const videoPath = `./Multiple-Choice-Videos/${videoId}.mp4`;
+            const casePath = `./some_cases/${videoId}`;
+            
+            // Check if SVG files exist and load content
+            const svgFiles = [
+                { name: 'video2svg', path: `${casePath}/video2svg.svg`, title: 'Video → SVG' },
+                { name: 'video2text2svg', path: `${casePath}/video2text2svg.svg`, title: 'Video → Text → SVG' },
+                { name: 'videoQ2text2svg', path: `${casePath}/videoQ2text2svg.svg`, title: 'Video+Question → Text → SVG' }
+            ];
+            
+            let svgSections = '';
+            for (const svg of svgFiles) {
+                const content = await loadSVGContent(svg.path);
+                if (content) {
+                    svgSections += `
+                        <div class="svg-container">
+                            <div class="svg-title">${svg.title}</div>
+                            ${content}
+                        </div>
+                    `;
+                } else {
+                    svgSections += `
+                        <div class="svg-container">
+                            <div class="svg-title">${svg.title}</div>
+                            <div class="svg-not-found">SVG file not found</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            const questionsHTML = createQuestionHTML(questions);
+            
+            return `
+                <div class="case-card" id="${videoId}">
+                    <div class="case-header">
+                        <h2 class="case-title">${videoId}</h2>
+                    </div>
+                    
+                    <div class="content-container">
+                        <div class="video-section">
+                            <div class="section-title">🎥 Original Video</div>
+                            <video controls>
+                                <source src="${videoPath}" type="video/mp4">
+                                Your browser does not support video playback.
+                            </video>
+                        </div>
+                        
+                        <div class="svg-section">
+                            <div class="section-title">🎨 SVG Visualizations</div>
+                            ${svgSections}
+                        </div>
+                        
+                        <div class="questions-section">
+                            <div class="section-title">❓ Multiple Choice Questions</div>
+                            ${questionsHTML}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        async function renderCases() {
+            const loadingElement = document.getElementById('loading');
+            const container = document.getElementById('cases-container');
+            
+            try {
+                // Generate TOC and Sidebar first
+                generateTOC();
+                generateSidebar();
+                
+                // Load question data
+                const mcQuestions = await loadMCQuestions();
+                
+                // Generate HTML for all cases
+                const casesHTML = await Promise.all(
+                    CASES_TO_SHOW.map(async videoId => {
+                        const questions = mcQuestions[videoId]?.mc_question || [];
+                        return await createCaseHTML(videoId, questions);
+                    })
+                );
+                
+                // Display content
+                loadingElement.style.display = 'none';
+                container.innerHTML = casesHTML.join('');
+                
+                // Add smooth scrolling behavior for all navigation links
+                function addSmoothScrolling(selector) {
+                    document.querySelectorAll(selector).forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const targetId = this.getAttribute('href').substring(1);
+                            const targetElement = document.getElementById(targetId);
+                            if (targetElement) {
+                                targetElement.scrollIntoView({ 
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        });
+                    });
+                }
+                
+                // Apply smooth scrolling to both TOC and sidebar
+                addSmoothScrolling('.toc-item');
+                addSmoothScrolling('.sidebar-item');
+                
+                // Initialize back to top functionality
+                initBackToTop();
+                
+            } catch (error) {
+                console.error('Error rendering cases:', error);
+                loadingElement.innerHTML = '<div class="error">Loading failed: ' + error.message + '</div>';
+            }
+        }
+        
+        // Start rendering after page loads
+        document.addEventListener('DOMContentLoaded', renderCases);
+    </script>
+</body>
+</html>
