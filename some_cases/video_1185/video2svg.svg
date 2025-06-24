@@ -1,0 +1,83 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background elements -->
+  <rect x="0" y="0" width="800" height="600" fill="#f5f5f5"/>
+  
+  <!-- Green curtains/fabric in background -->
+  <rect x="0" y="0" width="200" height="400" fill="#8FBC8F" opacity="0.8"/>
+  <rect x="600" y="0" width="200" height="400" fill="#8FBC8F" opacity="0.8"/>
+  
+  <!-- Wooden table surface -->
+  <rect x="150" y="300" width="500" height="200" fill="#8B4513"/>
+  <rect x="150" y="300" width="500" height="200" fill="#A0522D" opacity="0.5"/>
+  
+  <!-- Wood grain pattern -->
+  <line x1="150" y1="320" x2="650" y2="320" stroke="#654321" stroke-width="1" opacity="0.3"/>
+  <line x1="150" y1="340" x2="650" y2="340" stroke="#654321" stroke-width="1" opacity="0.3"/>
+  <line x1="150" y1="360" x2="650" y2="360" stroke="#654321" stroke-width="1" opacity="0.3"/>
+  <line x1="150" y1="380" x2="650" y2="380" stroke="#654321" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Person's torso and arms -->
+  <ellipse cx="400" cy="150" rx="120" ry="180" fill="#2C3E50"/>
+  
+  <!-- Left arm -->
+  <path d="M320 200 Q250 280 300 380" stroke="#FDBCB4" stroke-width="40" fill="none" stroke-linecap="round"/>
+  
+  <!-- Right arm -->
+  <path d="M480 200 Q550 280 500 380" stroke="#FDBCB4" stroke-width="40" fill="none" stroke-linecap="round">
+    <animate attributeName="d" 
+             values="M480 200 Q550 280 500 380;M480 200 Q520 280 450 380;M480 200 Q550 280 500 380"
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Right hand -->
+  <circle cx="500" cy="380" r="30" fill="#FDBCB4">
+    <animate attributeName="cx" 
+             values="500;450;500"
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Left hand -->
+  <circle cx="300" cy="380" r="30" fill="#FDBCB4"/>
+  
+  <!-- Green T-shaped object -->
+  <g id="greenT">
+    <rect x="290" y="340" width="20" height="50" fill="#00CC66"/>
+    <rect x="275" y="330" width="50" height="20" fill="#00CC66"/>
+    <animateTransform attributeName="transform" 
+                      type="translate" 
+                      values="0,0;150,0;0,0"
+                      dur="2s" 
+                      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Colorful flower decoration -->
+  <g transform="translate(450, 400)">
+    <circle cx="0" cy="0" r="15" fill="#333333"/>
+    <circle cx="0" cy="-20" r="8" fill="#FF69B4"/>
+    <circle cx="14" cy="-14" r="8" fill="#00CED1"/>
+    <circle cx="20" cy="0" r="8" fill="#FFD700"/>
+    <circle cx="14" cy="14" r="8" fill="#9370DB"/>
+    <circle cx="0" cy="20" r="8" fill="#32CD32"/>
+    <circle cx="-14" cy="14" r="8" fill="#FF6347"/>
+    <circle cx="-20" cy="0" r="8" fill="#87CEEB"/>
+    <circle cx="-14" cy="-14" r="8" fill="#FFA500"/>
+    <circle cx="0" cy="0" r="10" fill="#FF1493"/>
+  </g>
+  
+  <!-- Purple bracelet/band -->
+  <ellipse cx="550" cy="420" rx="35" ry="20" fill="#8B008B" opacity="0.8"/>
+  <rect x="545" y="410" width="10" height="20" fill="#FFD700"/>
+  
+  <!-- Triangle shape (appears in later frames) -->
+  <path d="M 350 360 L 370 360 L 360 340 Z" fill="#FF0000" opacity="0">
+    <animate attributeName="opacity" 
+             values="0;0;1;1;1"
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Plate on the right -->
+  <ellipse cx="700" cy="450" rx="60" ry="30" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="2"/>
+</svg>

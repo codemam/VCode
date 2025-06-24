@@ -1,0 +1,139 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#e8f4f8"/>
+  
+  <!-- Purple striped fabric -->
+  <rect x="0" y="350" width="800" height="250" fill="#d8c8e8"/>
+  <rect x="0" y="380" width="800" height="40" fill="#c8b8d8" opacity="0.5"/>
+  <rect x="0" y="460" width="800" height="40" fill="#c8b8d8" opacity="0.5"/>
+  <rect x="0" y="540" width="800" height="40" fill="#c8b8d8" opacity="0.5"/>
+  
+  <!-- Yellow paper -->
+  <rect x="150" y="200" width="500" height="200" fill="#f4e654"/>
+  
+  <!-- Lines on paper -->
+  <line x1="150" y1="240" x2="650" y2="240" stroke="#333" stroke-width="1"/>
+  <line x1="150" y1="280" x2="650" y2="280" stroke="#333" stroke-width="1"/>
+  <line x1="150" y1="320" x2="650" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="150" y1="360" x2="650" y2="360" stroke="#333" stroke-width="1"/>
+  
+  <!-- Letter W animation -->
+  <g id="letter-w">
+    <!-- First stroke of W -->
+    <path d="M 280 280 L 280 280" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d" 
+        values="M 280 280 L 280 280;
+                M 280 280 L 310 340;
+                M 280 280 L 310 340"
+        dur="3s"
+        keyTimes="0;0.2;1"/>
+    </path>
+    
+    <!-- Second stroke of W -->
+    <path d="M 310 340 L 310 340" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 310 340 L 310 340;
+                M 310 340 L 310 340;
+                M 310 340 L 340 280"
+        dur="3s"
+        keyTimes="0;0.2;0.4"/>
+    </path>
+    
+    <!-- Third stroke of W -->
+    <path d="M 340 280 L 340 280" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 340 280 L 340 280;
+                M 340 280 L 340 280;
+                M 340 280 L 370 340"
+        dur="3s"
+        keyTimes="0;0.4;0.6"/>
+    </path>
+    
+    <!-- Fourth stroke of W -->
+    <path d="M 370 340 L 370 340" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 370 340 L 370 340;
+                M 370 340 L 370 340;
+                M 370 340 L 400 280"
+        dur="3s"
+        keyTimes="0;0.6;0.8"/>
+    </path>
+    
+    <!-- Letter I -->
+    <path d="M 450 280 L 450 280" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 450 280 L 450 280;
+                M 450 280 L 450 280;
+                M 450 280 L 450 340"
+        dur="3s"
+        keyTimes="0;0.8;0.9"/>
+    </path>
+    
+    <!-- Letter N - first stroke -->
+    <path d="M 500 340 L 500 340" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 500 340 L 500 340;
+                M 500 340 L 500 340;
+                M 500 340 L 500 280"
+        dur="3s"
+        keyTimes="0;0.9;0.95"/>
+    </path>
+    
+    <!-- Letter N - diagonal -->
+    <path d="M 500 280 L 500 280" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 500 280 L 500 280;
+                M 500 280 L 500 280;
+                M 500 280 L 550 340"
+        dur="3s"
+        keyTimes="0;0.95;0.98"/>
+    </path>
+    
+    <!-- Letter N - last stroke -->
+    <path d="M 550 340 L 550 340" stroke="#333" stroke-width="2" fill="none">
+      <animate attributeName="d"
+        values="M 550 340 L 550 340;
+                M 550 340 L 550 340;
+                M 550 340 L 550 280"
+        dur="3s"
+        keyTimes="0;0.98;1"/>
+    </path>
+  </g>
+  
+  <!-- Hand -->
+  <g id="hand" transform="translate(400, 300)">
+    <animateTransform attributeName="transform"
+      type="translate"
+      values="400,300;400,300;550,300"
+      dur="3s"
+      keyTimes="0;0.8;1"/>
+    
+    <!-- Hand shape -->
+    <ellipse cx="0" cy="0" rx="40" ry="35" fill="#f4d1a6"/>
+    <ellipse cx="-15" cy="-20" rx="12" ry="25" fill="#f4d1a6"/>
+    <ellipse cx="-5" cy="-25" rx="10" ry="22" fill="#f4d1a6"/>
+    <ellipse cx="5" cy="-25" rx="10" ry="22" fill="#f4d1a6"/>
+    <ellipse cx="15" cy="-20" rx="10" ry="20" fill="#f4d1a6"/>
+    <ellipse cx="25" cy="-5" rx="15" ry="10" fill="#f4d1a6" transform="rotate(30 25 -5)"/>
+    
+    <!-- Marker -->
+    <rect x="-5" y="-35" width="10" height="50" fill="#333" transform="rotate(15 0 0)"/>
+    <rect x="-5" y="-40" width="10" height="5" fill="#666" transform="rotate(15 0 0)"/>
+  </g>
+  
+  <!-- Red wristband -->
+  <rect x="360" y="320" width="80" height="20" fill="#e74c3c">
+    <animateTransform attributeName="transform"
+      type="translate"
+      values="0,0;0,0;150,0"
+      dur="3s"
+      keyTimes="0;0.8;1"/>
+  </rect>
+  
+  <!-- Left hand -->
+  <ellipse cx="200" cy="350" rx="35" ry="30" fill="#f4d1a6"/>
+  <ellipse cx="180" cy="340" rx="10" ry="20" fill="#f4d1a6"/>
+  <ellipse cx="190" cy="335" rx="8" ry="18" fill="#f4d1a6"/>
+  <ellipse cx="200" cy="335" rx="8" ry="18" fill="#f4d1a6"/>
+  <ellipse cx="210" cy="340" rx="8" ry="16" fill="#f4d1a6"/>
+</svg>

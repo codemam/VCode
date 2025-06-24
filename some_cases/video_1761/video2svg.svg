@@ -1,0 +1,99 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#E8E4E0"/>
+  
+  <!-- Table -->
+  <rect x="0" y="400" width="800" height="200" fill="#D0CFCC"/>
+  <line x1="400" y1="400" x2="400" y2="600" stroke="#A0A0A0" stroke-width="2"/>
+  
+  <!-- Potatoes on table -->
+  <ellipse cx="350" cy="500" rx="40" ry="35" fill="#C4A57B"/>
+  <ellipse cx="450" cy="500" rx="35" ry="40" fill="#E84855"/>
+  
+  <!-- Person's torso -->
+  <rect x="250" y="50" width="300" height="350" rx="20" fill="#1A1A1A"/>
+  <rect x="280" y="100" width="240" height="60" fill="#2C4F7C"/>
+  <rect x="280" y="160" width="240" height="20" fill="#DC2626"/>
+  <rect x="280" y="180" width="240" height="40" fill="#E5E5E5"/>
+  
+  <!-- Arms -->
+  <g id="leftArm">
+    <rect x="150" y="150" width="120" height="250" rx="40" fill="#D4A574">
+      <animate attributeName="x" values="150;180;150" dur="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <g id="rightArm">
+    <rect x="530" y="150" width="120" height="250" rx="40" fill="#D4A574">
+      <animate attributeName="x" values="530;500;530" dur="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Left hand -->
+  <g id="leftHand">
+    <ellipse cx="210" cy="400" rx="50" ry="60" fill="#D4A574">
+      <animate attributeName="cy" values="400;350;300;350;400" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Fingers -->
+    <rect x="195" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="210" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="225" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Right hand with cross -->
+  <g id="rightHand">
+    <ellipse cx="590" cy="400" rx="50" ry="60" fill="#D4A574">
+      <animate attributeName="cy" values="400;350;300;350;400" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Cross on palm -->
+    <g>
+      <line x1="580" y1="390" x2="600" y2="410" stroke="#1E3A8A" stroke-width="3">
+        <animate attributeName="y1" values="390;340;290;340;390" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="410;360;310;360;410" dur="6s" repeatCount="indefinite"/>
+      </line>
+      <line x1="600" y1="390" x2="580" y2="410" stroke="#1E3A8A" stroke-width="3">
+        <animate attributeName="y1" values="390;340;290;340;390" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="410;360;310;360;410" dur="6s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <!-- Fingers -->
+    <rect x="575" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="590" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="605" y="340" width="10" height="40" rx="5" fill="#D4A574">
+      <animate attributeName="height" values="40;50;40;50;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="340;330;340;330;340" dur="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Hand rotation animation -->
+  <animateTransform
+    xlink:href="#leftHand"
+    attributeName="transform"
+    type="rotate"
+    values="0 210 400;180 210 350;0 210 300;180 210 350;0 210 400"
+    dur="6s"
+    repeatCount="indefinite"/>
+    
+  <animateTransform
+    xlink:href="#rightHand"
+    attributeName="transform"
+    type="rotate"
+    values="0 590 400;-180 590 350;0 590 300;-180 590 350;0 590 400"
+    dur="6s"
+    repeatCount="indefinite"/>
+</svg>

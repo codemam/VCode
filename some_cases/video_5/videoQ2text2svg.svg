@@ -1,0 +1,55 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background and table -->
+  <rect width="800" height="600" fill="#8B6F47"/>
+  
+  <!-- White paper sheet -->
+  <rect x="100" y="100" width="600" height="400" fill="white" stroke="#ddd" stroke-width="2"/>
+  
+  <!-- Static objects -->
+  <!-- Blue pencil -->
+  <rect x="250" y="200" width="120" height="8" fill="#1E90FF" rx="4"/>
+  <polygon points="370,200 370,208 380,204" fill="#FFB6C1"/>
+  
+  <!-- Container with straw -->
+  <circle cx="500" cy="300" r="30" fill="#E0E0E0" stroke="#999" stroke-width="2"/>
+  <rect x="498" y="270" width="4" height="50" fill="#FF6B6B"/>
+  
+  <!-- Book -->
+  <rect x="600" y="250" width="80" height="120" fill="#F5DEB3" stroke="#8B7355" stroke-width="2"/>
+  <text x="640" y="310" text-anchor="middle" font-size="10" fill="#333">The Birthday</text>
+  <text x="640" y="325" text-anchor="middle" font-size="10" fill="#333">Party</text>
+  
+  <!-- Tennis ball with animation -->
+  <circle cx="200" cy="300" r="25" fill="#CCFF00" stroke="#99CC00" stroke-width="2">
+    <!-- First launch: ball rolls to book -->
+    <animate attributeName="cx" values="200;200;350;500;575;575;575;575" dur="2.5s" begin="0s;10s" />
+    <animate attributeName="cy" values="300;300;300;300;300;300;300;300" dur="2.5s" begin="0s;10s" />
+    
+    <!-- Second launch: ball to center -->
+    <animate attributeName="cx" values="575;575;200;200;350;400;400;400" dur="2.5s" begin="2.5s;12.5s" />
+    <animate attributeName="cy" values="300;300;300;300;300;300;300;300" dur="2.5s" begin="2.5s;12.5s" />
+    
+    <!-- Third launch: ball stays on paper -->
+    <animate attributeName="cx" values="400;400;200;200;300;450;450;200" dur="2.5s" begin="5s;15s" />
+    <animate attributeName="cy" values="300;300;300;300;350;350;350;300" dur="2.5s" begin="5s;15s" />
+  </circle>
+  
+  <!-- Pattern on tennis ball -->
+  <path d="M 175 300 Q 200 280 225 300" fill="none" stroke="#99CC00" stroke-width="2">
+    <animate attributeName="d" 
+      values="M 175 300 Q 200 280 225 300;M 175 300 Q 200 280 225 300;M 325 300 Q 350 280 375 300;M 475 300 Q 500 280 525 300;M 550 300 Q 575 280 600 300;M 550 300 Q 575 280 600 300;M 550 300 Q 575 280 600 300;M 550 300 Q 575 280 600 300" 
+      dur="2.5s" begin="0s;10s" />
+    <animate attributeName="d" 
+      values="M 550 300 Q 575 280 600 300;M 550 300 Q 575 280 600 300;M 175 300 Q 200 280 225 300;M 175 300 Q 200 280 225 300;M 325 300 Q 350 280 375 300;M 375 300 Q 400 280 425 300;M 375 300 Q 400 280 425 300;M 375 300 Q 400 280 425 300" 
+      dur="2.5s" begin="2.5s;12.5s" />
+    <animate attributeName="d" 
+      values="M 375 300 Q 400 280 425 300;M 375 300 Q 400 280 425 300;M 175 300 Q 200 280 225 300;M 175 300 Q 200 280 225 300;M 275 350 Q 300 330 325 350;M 425 350 Q 450 330 475 350;M 425 350 Q 450 330 475 350;M 175 300 Q 200 280 225 300" 
+      dur="2.5s" begin="5s;15s" />
+  </path>
+  
+  <!-- Hand animation -->
+  <g opacity="0">
+    <path d="M 150 320 Q 170 300 190 310 L 190 340 Q 180 350 170 350 L 150 340 Z" fill="#FDBCB4" stroke="#333" stroke-width="1"/>
+    <animate attributeName="opacity" values="0;1;1;1;0;0;0;0" dur="2.5s" begin="0s;10s" repeatCount="3"/>
+  </g>
+</svg>

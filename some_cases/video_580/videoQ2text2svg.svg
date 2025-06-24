@@ -1,0 +1,58 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Decorative surface pattern -->
+  <pattern id="surface" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="15" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
+    <circle cx="70" cy="50" r="12" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
+    <circle cx="40" cy="80" r="18" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
+  </pattern>
+  <rect width="800" height="400" fill="#f5f5f5"/>
+  <rect width="800" height="400" fill="url(#surface)"/>
+  
+  <!-- Shadows for cups -->
+  <ellipse id="shadow1" cx="200" cy="300" rx="60" ry="20" fill="#00000020">
+    <animate attributeName="cx" values="200;350;500;350;200" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse id="shadow2" cx="400" cy="300" rx="60" ry="20" fill="#00000020">
+    <animate attributeName="cx" values="400;200;350;500;400" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse id="shadow3" cx="600" cy="300" rx="60" ry="20" fill="#00000020">
+    <animate attributeName="cx" values="600;500;200;200;600" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Hidden black object -->
+  <ellipse id="object" cx="200" cy="285" rx="15" ry="8" fill="#000000">
+    <animate attributeName="cx" values="200;200;200;350;350;350;400;400;400;400" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0;0;0;0;0;0;0;1;0" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Blue cup -->
+  <g id="blueCup">
+    <path d="M 150 280 L 160 150 L 240 150 L 250 280 Q 200 300 150 280" fill="#4287f5" fill-opacity="0.5" stroke="#2563eb" stroke-width="2"/>
+    <ellipse cx="200" cy="150" rx="40" ry="15" fill="#4287f5" fill-opacity="0.6" stroke="#2563eb" stroke-width="2"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-100;0,-100;150,0;300,0;150,0;0,0" dur="6s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Turquoise cup -->
+  <g id="turquoiseCup">
+    <path d="M 350 280 L 360 150 L 440 150 L 450 280 Q 400 300 350 280" fill="#40e0d0" fill-opacity="0.5" stroke="#17a2b8" stroke-width="2"/>
+    <ellipse cx="400" cy="150" rx="40" ry="15" fill="#40e0d0" fill-opacity="0.6" stroke="#17a2b8" stroke-width="2"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,0;-200,0;-50,0;100,0;0,0" dur="6s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Lime green cup -->
+  <g id="greenCup">
+    <path d="M 550 280 L 560 150 L 640 150 L 650 280 Q 600 300 550 280" fill="#32cd32" fill-opacity="0.5" stroke="#228b22" stroke-width="2"/>
+    <ellipse cx="600" cy="150" rx="40" ry="15" fill="#32cd32" fill-opacity="0.6" stroke="#228b22" stroke-width="2"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,0;-100,0;-400,0;-400,0;0,0" dur="6s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Hand with rings -->
+  <g id="hand" opacity="0">
+    <path d="M 180 100 Q 200 80 220 85 Q 230 90 235 100 Q 240 90 245 100 Q 250 90 255 100 Q 260 90 265 100 L 265 130 Q 240 140 215 135 L 210 110 Q 190 115 180 100" fill="#f4c2a1" stroke="#d4a373" stroke-width="1"/>
+    <circle cx="225" cy="105" r="3" fill="none" stroke="#ffd700" stroke-width="2"/>
+    <circle cx="240" cy="105" r="3" fill="none" stroke="#c0c0c0" stroke-width="2"/>
+    <rect x="190" y="125" width="30" height="8" rx="4" fill="#000000"/>
+    <animate attributeName="opacity" values="0;1;1;0;0;0;0;0;1;0" dur="6s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,50;150,50;300,50;150,50;0,50;0,0;0,0;0,0" dur="6s" repeatCount="indefinite"/>
+  </g>
+</svg>

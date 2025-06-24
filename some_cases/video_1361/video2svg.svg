@@ -1,0 +1,89 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#E8DCC4"/>
+  
+  <!-- Wall painting -->
+  <rect x="250" y="50" width="80" height="100" fill="#2C2416" rx="5"/>
+  <rect x="260" y="60" width="60" height="80" fill="#3B4A5C" rx="3"/>
+  <ellipse cx="290" cy="85" rx="20" ry="25" fill="#D4A574"/>
+  <path d="M270 85 Q290 95 310 85" fill="none" stroke="#1A1612" stroke-width="2"/>
+  <circle cx="280" cy="80" r="1.5" fill="#1A1612"/>
+  <circle cx="300" cy="80" r="1.5" fill="#1A1612"/>
+  
+  <!-- Teddy bear -->
+  <g id="teddy">
+    <ellipse cx="680" cy="480" rx="25" ry="30" fill="#A8A098"/>
+    <ellipse cx="680" cy="450" rx="20" ry="22" fill="#A8A098"/>
+    <circle cx="670" cy="445" r="3" fill="#2C2416"/>
+    <circle cx="690" cy="445" r="3" fill="#2C2416"/>
+    <ellipse cx="680" cy="455" rx="4" ry="3" fill="#1A1612"/>
+    <rect x="670" y="465" width="20" height="15" fill="#E4A853" rx="2"/>
+  </g>
+  
+  <!-- Shirt body -->
+  <g id="shirt">
+    <path d="M200 350 L200 600 L600 600 L600 350 Q600 300 550 280 Q450 260 400 260 Q350 260 250 280 Q200 300 200 350" fill="#E8D4D8">
+      <animate attributeName="fill" values="#E8D4D8;#E0CCD2;#E8D4D8" dur="0.3s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Gingham pattern -->
+    <defs>
+      <pattern id="gingham" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnits">
+        <rect width="4" height="4" fill="#F5E8EC"/>
+        <rect x="4" width="4" height="4" fill="#E8D4D8"/>
+        <rect y="4" width="4" height="4" fill="#E8D4D8"/>
+        <rect x="4" y="4" width="4" height="4" fill="#F5E8EC"/>
+      </pattern>
+    </defs>
+    <path d="M200 350 L200 600 L600 600 L600 350 Q600 300 550 280 Q450 260 400 260 Q350 260 250 280 Q200 300 200 350" fill="url(#gingham)" opacity="0.6"/>
+    
+    <!-- Collar -->
+    <path d="M300 260 L350 240 L400 235 L450 240 L500 260 L500 290 Q450 280 400 280 Q350 280 300 290 Z" fill="#F5E8EC" stroke="#E0CCD2" stroke-width="1"/>
+    
+    <!-- Button placket -->
+    <rect x="390" y="280" width="20" height="320" fill="#F5E8EC" stroke="#E0CCD2" stroke-width="1"/>
+    
+    <!-- Buttons -->
+    <circle cx="400" cy="320" r="4" fill="#FFFFFF" stroke="#C8B4B8" stroke-width="1"/>
+    <circle cx="400" cy="370" r="4" fill="#FFFFFF" stroke="#C8B4B8" stroke-width="1"/>
+    <circle cx="400" cy="420" r="4" fill="#FFFFFF" stroke="#C8B4B8" stroke-width="1"/>
+    <circle cx="400" cy="470" r="4" fill="#FFFFFF" stroke="#C8B4B8" stroke-width="1"/>
+    <circle cx="400" cy="520" r="4" fill="#FFFFFF" stroke="#C8B4B8" stroke-width="1"/>
+    
+    <!-- Logo -->
+    <g transform="translate(300, 320)">
+      <path d="M0 0 Q5 -5 10 0 L10 5 Q8 8 5 8 Q2 8 0 5 Z" fill="#1A1612"/>
+      <circle cx="5" cy="3" r="1" fill="#1A1612"/>
+      <path d="M2 6 Q5 4 8 6" fill="none" stroke="#1A1612" stroke-width="0.5"/>
+    </g>
+  </g>
+  
+  <!-- Sleeves -->
+  <g id="leftSleeve">
+    <path d="M200 350 Q150 380 120 420 L120 500 Q150 520 180 520 L200 500 Z" fill="#E8D4D8">
+      <animate attributeName="fill" values="#E8D4D8;#E0CCD2;#E8D4D8" dur="0.3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M200 350 Q150 380 120 420 L120 500 Q150 520 180 520 L200 500 Z" fill="url(#gingham)" opacity="0.6"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 200 400;-5 200 400;0 200 400" dur="2s" repeatCount="indefinite"/>
+  </g>
+  
+  <g id="rightSleeve">
+    <path d="M600 350 Q650 380 680 420 L680 500 Q650 520 620 520 L600 500 Z" fill="#E8D4D8">
+      <animate attributeName="fill" values="#E8D4D8;#E0CCD2;#E8D4D8" dur="0.3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M600 350 Q650 380 680 420 L680 500 Q650 520 620 520 L600 500 Z" fill="url(#gingham)" opacity="0.6"/>
+  </g>
+  
+  <!-- Right hand/arm gesture -->
+  <g id="hand">
+    <ellipse cx="680" cy="520" rx="25" ry="20" fill="#D4A574" transform="rotate(-30 680 520)">
+      <animateTransform attributeName="transform" type="rotate" values="-30 680 520;-45 680 520;-30 680 520" dur="1s" repeatCount="indefinite"/>
+    </ellipse>
+    <line x1="655" y1="515" x2="665" y2="525" stroke="#C8986A" stroke-width="1"/>
+    <line x1="655" y1="525" x2="665" y2="535" stroke="#C8986A" stroke-width="1"/>
+  </g>
+  
+  <!-- Neck -->
+  <rect x="350" y="200" width="100" height="60" fill="#D4A574"/>
+  <ellipse cx="400" cy="240" rx="50" ry="30" fill="#D4A574"/>
+</svg>

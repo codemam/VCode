@@ -1,0 +1,140 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background floor tiles -->
+  <defs>
+    <pattern id="tiles" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#f5f5f5" stroke="#ddd"/>
+      <rect x="25" y="25" width="50" height="50" fill="#fff"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#tiles)"/>
+  
+  <!-- Background furniture -->
+  <rect x="0" y="0" width="800" height="300" fill="#e8e4e0" opacity="0.3"/>
+  
+  <!-- Person's legs (black pants with white stripes) -->
+  <g id="person">
+    <rect x="500" y="200" width="60" height="300" fill="#000"/>
+    <rect x="580" y="200" width="60" height="300" fill="#000"/>
+    <rect x="505" y="250" width="5" height="200" fill="#fff"/>
+    <rect x="585" y="250" width="5" height="200" fill="#fff"/>
+  </g>
+  
+  <!-- Storage box -->
+  <g id="box">
+    <rect x="200" y="350" width="250" height="150" fill="#8B6535" stroke="#654321" stroke-width="3"/>
+    <!-- Box lid -->
+    <rect id="boxLid" x="200" y="350" width="250" height="20" fill="#A0522D" stroke="#654321" stroke-width="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 200 350; 0 200 350; 0 200 350; -60 200 350; -60 200 350; -60 200 350; -60 200 350; 0 200 350"
+        dur="10s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Items on top of box -->
+  <g id="itemsOnTop">
+    <rect x="210" y="330" width="80" height="20" fill="#f4a460" stroke="#8B4513"/>
+    <text x="250" y="344" text-anchor="middle" font-size="10" fill="#000">Biscuits</text>
+    <circle cx="320" cy="340" r="15" fill="#ff8c00"/>
+    <circle cx="360" cy="340" r="15" fill="#ff8c00"/>
+  </g>
+  
+  <!-- Hand -->
+  <g id="hand" opacity="0">
+    <ellipse cx="400" cy="300" rx="30" ry="20" fill="#fdbcb4"/>
+    <animate attributeName="opacity" values="0; 1; 1; 1; 0" dur="2s" begin="0s; 10s" repeatCount="indefinite"/>
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0; 0,100; -100,100; -100,150; 0,0"
+      dur="2s"
+      begin="0s; 10s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Objects to be placed (initially visible, then hidden) -->
+  <g id="object1">
+    <circle cx="400" cy="400" r="20" fill="#fff" stroke="#ccc" stroke-width="2">
+      <animate attributeName="opacity" values="1; 1; 0" dur="2s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 0,0; -100,50"
+        dur="2s"
+        begin="0s"
+        repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <g id="object2">
+    <rect x="450" y="390" width="30" height="30" fill="#4169e1" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 0" dur="2s" begin="2s" repeatCount="indefinite"/>
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 0,0; -150,50"
+        dur="2s"
+        begin="2s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <g id="object3">
+    <ellipse cx="380" cy="410" rx="25" ry="15" fill="#32cd32" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 0" dur="2s" begin="4s" repeatCount="indefinite"/>
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 0,0; -80,30"
+        dur="2s"
+        begin="4s"
+        repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  
+  <g id="object4">
+    <polygon points="420,400 440,400 430,420" fill="#ff1493" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 0" dur="2s" begin="6s" repeatCount="indefinite"/>
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 0,0; -120,40"
+        dur="2s"
+        begin="6s"
+        repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <g id="object5">
+    <rect x="460" y="405" width="25" height="25" rx="5" fill="#9370db" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 0" dur="2s" begin="8s" repeatCount="indefinite"/>
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 0,0; -160,35"
+        dur="2s"
+        begin="8s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Counter display -->
+  <g id="counter">
+    <rect x="50" y="50" width="150" height="50" fill="#fff" stroke="#000" stroke-width="2" rx="5"/>
+    <text x="125" y="80" text-anchor="middle" font-size="18" font-weight="bold">
+      Objects: <tspan id="count">0</tspan>/5
+      <animate attributeName="fill" values="#000; #000; #0f0; #0f0" dur="10s" repeatCount="indefinite"/>
+    </text>
+    <text id="count" x="165" y="80" font-size="18" font-weight="bold">
+      <animate attributeName="textContent" values="0; 1; 1; 2; 2; 3; 3; 4; 4; 5; 5" dur="10s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  
+  <!-- Success message -->
+  <text x="400" y="550" text-anchor="middle" font-size="24" fill="#0a0" opacity="0">
+    Box Successfully Closed!
+    <animate attributeName="opacity" values="0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1" dur="10s" repeatCount="indefinite"/>
+  </text>
+</svg>

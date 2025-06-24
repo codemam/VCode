@@ -1,0 +1,90 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wooden table background -->
+  <rect x="0" y="300" width="800" height="300" fill="#8B6944"/>
+  <rect x="0" y="320" width="800" height="280" fill="#7A5C3A"/>
+  
+  <!-- Wood grain texture -->
+  <line x1="0" y1="350" x2="800" y2="350" stroke="#6B4E2A" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#6B4E2A" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#6B4E2A" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Person's dress (partial view) -->
+  <path d="M 200 0 L 200 320 L 600 320 L 600 0" fill="#1a1a3a"/>
+  
+  <!-- Rainbow flower decoration (static) -->
+  <g transform="translate(500, 400)">
+    <circle cx="0" cy="0" r="30" fill="#FFD700"/>
+    <circle cx="0" cy="-8" r="3" fill="#000"/>
+    <circle cx="-8" cy="-8" r="3" fill="#000"/>
+    <circle cx="8" cy="-8" r="3" fill="#000"/>
+    <path d="M -10 5 Q 0 15 10 5" fill="none" stroke="#000" stroke-width="2"/>
+    <ellipse cx="0" cy="-35" rx="15" ry="25" fill="#FF69B4"/>
+    <ellipse cx="35" cy="0" rx="25" ry="15" fill="#FFFF00"/>
+    <ellipse cx="0" cy="35" rx="15" ry="25" fill="#00CED1"/>
+    <ellipse cx="-35" cy="0" rx="25" ry="15" fill="#90EE90"/>
+  </g>
+  
+  <!-- Purple container (static) -->
+  <rect x="600" y="380" width="40" height="60" rx="5" fill="#9370DB"/>
+  <rect x="595" y="375" width="50" height="10" rx="5" fill="#8B7AB8"/>
+  
+  <!-- Hand holding green T-piece -->
+  <g id="hand-with-green">
+    <ellipse cx="350" cy="200" rx="40" ry="60" fill="#F5DEB3"/>
+    <rect x="320" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="335" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="350" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="365" y="180" width="15" height="40" fill="#F5DEB3"/>
+    
+    <!-- Green T-piece -->
+    <g id="green-t-piece">
+      <rect x="340" y="150" width="20" height="60" fill="#228B22"/>
+      <rect x="320" y="150" width="60" height="20" fill="#228B22"/>
+    </g>
+    
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0; 0,200; 0,200; 0,200; 0,0"
+      dur="5s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Green T-piece on table (appears after placement) -->
+  <g id="green-on-table" opacity="0">
+    <rect x="340" y="380" width="20" height="60" fill="#228B22"/>
+    <rect x="320" y="380" width="60" height="20" fill="#228B22"/>
+    
+    <animate
+      attributeName="opacity"
+      values="0; 0; 1; 1; 1"
+      dur="5s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Hand with red triangle (appears later) -->
+  <g id="hand-with-red" opacity="0">
+    <ellipse cx="350" cy="200" rx="40" ry="60" fill="#F5DEB3"/>
+    <rect x="320" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="335" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="350" y="180" width="15" height="40" fill="#F5DEB3"/>
+    <rect x="365" y="180" width="15" height="40" fill="#F5DEB3"/>
+    
+    <!-- Red triangle -->
+    <polygon points="350,150 330,190 370,190" fill="#DC143C"/>
+    
+    <animate
+      attributeName="opacity"
+      values="0; 0; 0; 0; 1"
+      dur="5s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Hide green piece in hand when placed -->
+  <animate
+    href="#green-t-piece"
+    attributeName="opacity"
+    values="1; 1; 0; 0; 0"
+    dur="5s"
+    repeatCount="indefinite"/>
+</svg>

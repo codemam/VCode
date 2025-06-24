@@ -1,0 +1,82 @@
+<svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="600" fill="#F5E6D3"/>
+  
+  <!-- Religious icon painting -->
+  <rect x="50" y="30" width="60" height="80" fill="#8B4513" stroke="#654321" stroke-width="3"/>
+  <rect x="55" y="35" width="50" height="70" fill="#FFD700"/>
+  
+  <!-- Stuffed animals -->
+  <!-- Yellow duck -->
+  <ellipse cx="300" cy="450" rx="40" ry="35" fill="#FFD700"/>
+  <ellipse cx="315" cy="435" rx="20" ry="25" fill="#FFA500"/>
+  <circle cx="310" cy="430" r="3" fill="#000"/>
+  
+  <!-- Gray teddy bear -->
+  <circle cx="350" cy="480" r="30" fill="#808080"/>
+  <circle cx="340" cy="470" r="8" fill="#696969"/>
+  <circle cx="360" cy="470" r="8" fill="#696969"/>
+  <path d="M340 475 Q350 485 360 475" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M330 465 L370 465" fill="none" stroke="#FF69B4" stroke-width="4"/>
+  
+  <!-- Shirt -->
+  <path d="M120 150 L120 500 L280 500 L280 150 L230 130 L170 130 Z" fill="#FFF0F5" stroke="#D3D3D3" stroke-width="1"/>
+  <!-- Checkered pattern -->
+  <pattern id="checkered" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <rect x="0" y="0" width="10" height="10" fill="#FFB6C1"/>
+    <rect x="10" y="10" width="10" height="10" fill="#FFB6C1"/>
+  </pattern>
+  <path d="M120 150 L120 500 L280 500 L280 150 L230 130 L170 130 Z" fill="url(#checkered)" opacity="0.3"/>
+  
+  <!-- Button placket -->
+  <rect x="190" y="150" width="20" height="350" fill="#FFF" stroke="#D3D3D3"/>
+  
+  <!-- Buttons -->
+  <circle cx="200" cy="180" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="230" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="280" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="330" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="380" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="430" r="5" fill="#FFF" stroke="#333" stroke-width="1"/>
+  
+  <!-- Hands -->
+  <g id="leftHand">
+    <path d="M140 170 Q130 180 135 190 L145 200 Q155 205 165 195 L160 175 Q150 165 140 170" fill="#FDBCB4"/>
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0; 0,50; 0,100; 0,150; 0,200; 0,250; 0,0"
+      dur="6s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <g id="rightHand">
+    <path d="M240 170 Q250 180 245 190 L235 200 Q225 205 215 195 L220 175 Q230 165 240 170" fill="#FDBCB4"/>
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0; 0,50; 0,100; 0,150; 0,200; 0,250; 0,0"
+      dur="6s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Button fastening animation indicators -->
+  <circle cx="200" cy="180" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="0s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="230" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="280" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="330" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="380" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="430" r="8" fill="none" stroke="#4169E1" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" begin="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
